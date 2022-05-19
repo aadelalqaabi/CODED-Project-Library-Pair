@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 import axios from "axios";
 class MemberStore {
   members = [
@@ -9,7 +9,10 @@ class MemberStore {
     },
   ];
   constructor() {
-    makeAutoObservable(this);
+    makeObservable(this, {
+      members: observable,
+      createMember: action,
+    });
   }
 
   createMember = async (member) => {

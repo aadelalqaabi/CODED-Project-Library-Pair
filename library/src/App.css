@@ -1,3 +1,33 @@
+.header{
+  font-size: 4rem;
+  background-color: red;
+}
+.onemember{
+  background-color: green;
+  border: 2px solid red;
+}
+.onebook{
+  color: antiquewhite;
+  background-color: rgb(28, 0, 128);
+  border: 2px solid rgb(166, 255, 0);
+}
+.bookimage{
+  width: 50px;
+  height: auto;
+}
+.container{
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.book-container{
+  width:60%;
+}
+.member-container{
+  width:40%;
+}
 .App {
   text-align: center;
 }

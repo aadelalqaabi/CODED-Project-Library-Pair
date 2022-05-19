@@ -3,6 +3,8 @@ import axios from "axios";
 class BookStore {
   books = [
     {
+      image:
+        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491842507l/34076952.jpg",
       author: "Jordoan Peterson",
       title: "12 Rules",
       genres: ["self-Help"],
@@ -11,6 +13,11 @@ class BookStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  findBookTitle = (bookId) => {
+    const theBook = this.books.find((book) => bookId === book.id);
+    return theBook.title;
+  };
 
   createBook = async (book) => {
     try {
