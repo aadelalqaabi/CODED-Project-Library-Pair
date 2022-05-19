@@ -15,6 +15,7 @@
   width: 50px;
   height: auto;
 }
+
 .container{
   display:flex;
   justify-content: center;
