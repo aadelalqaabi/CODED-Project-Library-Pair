@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div className="container d-flex align-items-center flex-column">
+    <div className="container d-flex align-items-center justify-content-center flex-column">
       <h1 className="masthead-heading text-uppercase mb-0">
         Welcome To Library
       </h1>
@@ -12,10 +12,10 @@ function Home() {
         <div className="divider-custom-line"></div>
       </div>
       <p className="masthead-subheading font-weight-light mb-0">
-        the perfect place to mnage your library
+        the perfect place to manage your library
       </p>
     </div>
   );
 }
 
-export default observer(Home);
+export default Home;

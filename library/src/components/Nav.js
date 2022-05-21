@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/Home">
-          Library
+    <nav className="navbar navbar-expand-lg navbar-light nav-special">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/Home">
+          Home
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -17,17 +17,21 @@ function Nav() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/BookList">
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/BookList"
+              >
                 Books
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/MemberList">
+            <li className="nav-item">
+              <a className="nav-link" href="/MemberList">
                 Members
               </a>
             </li>

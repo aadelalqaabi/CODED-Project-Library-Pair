@@ -11,7 +11,9 @@ function BookList() {
     .filter(
       (book) =>
         book.title.toLowerCase().includes(query.toLowerCase()) &&
-        book.genres.includes(genre)
+        (genre === ""
+          ? !book.genres.includes(genre)
+          : book.genres.includes(genre))
     )
     .map((book) => <Book key={book.id} book={book} />);
   return (
