@@ -23,7 +23,7 @@ nav{
 }
 .bookimage{
   display: inline-block;
-  vertical-align: middle;
+
   justify-content: center;
   width: 46%;
 
@@ -33,15 +33,16 @@ nav{
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
   width:20%;
-
-  padding: 10px;
+  padding: 30px;
   margin: 10px;
-
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;}
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .booknames{
   display: inline-block;
   width: 46%;
-  
   color:#282c34;
   display:initial;             
   flex-direction: column;     
@@ -63,11 +64,17 @@ nav{
 }
 .bookimage{
   width: 200px;
-  height: auto;
-  padding-bottom: 10px;
+padding-bottom: 10px;
+  height: 50%;
+}
+.bookcontainer{
+
+  align-content: center;
+  justify-content: center;
+ 
 }
 .booktitle{
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'Goudy Bookletter 1911', serif;
   text-align: center;
 }
@@ -94,6 +101,17 @@ nav{
   margin-right: 5px;
   margin-bottom:5px;
   margin-top: 15px;
+}
+.modalbookgenres{
+  
+  display:flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.titlefont{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 50px;
 }
 .booklist{
   display: flex;
@@ -125,7 +143,7 @@ nav{
 .searchaddmember{
   margin: 10px;
  padding: 10px;
- display:grid;
+
 }
 #addbook{
 
@@ -152,13 +170,14 @@ margin: 3px;
 }
 
 #searchinputmember{
-
+  display:flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px;
-  
-  padding-right: 200px;
+max-width: 500px;
 }
 #selectinput{
-  margin: 8px;
+  margin: 10px;
   border-radius: 20px;
 
 }
@@ -170,6 +189,12 @@ margin: 3px;
 }
 .modalbrorrowed
 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  padding-top: 20px;
+}
+.bookborrowedby{
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
   font-size: xx-large;

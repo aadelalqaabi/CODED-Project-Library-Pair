@@ -11,32 +11,39 @@ function Book({ book }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const currentlyBorrowingMember = memberStore.findBorrowingMember(
+  /*const currentlyBorrowingMember = memberStore.findBorrowingMember(
     book.borrowedBy.length === 0
       ? "x"
       : book.borrowedBy[book.borrowedBy.length - 1]
-  );
+  );*/
 
   return (
     <div className="onebook">
-      <div className="bookimage">
-        <img src={book.image} className="bookimage"></img>
-      </div>
-      <div className="booknames">
-        <h1 className="booktitle">{book.title}</h1>
-        <div className="mx-2">
-          <Button variant="light" onClick={handleShow}>
-            Show Details
-          </Button>
+      <div className="bookcontainer">
+        <div>
+          <img src={book.image} className="bookimage"></img>
+        </div>
+        <div className="booknames">
+          <h1 className="booktitle">{book.title}</h1>
+          <div className="mx-2">
+            <Button variant="light" onClick={handleShow}>
+              Show Details
+            </Button>
+          </div>
         </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>{book.title}</Modal.Title>
+            <Modal.Title className="titlefont">{book.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="bookauthor">By {book.author}</div>
-            <div className="bookborrowedby"> {book.borrowedBy} </div>
-            <div className="bookgenres"> {[...book.genres]} </div>
+            <div className="modalbrorrowed">Written By {book.author}</div>
+            <div className="modalbrorrowed"> Currently Borrowed by </div>
+            <div className="bookborrowedbydiv">
+              <div className="bookborrowedby"> {book.borrowedBy} </div>
+            </div>
+            <div className="modalbookgenres">
+              <div className="bookgenres"> {[...book.genres]} </div>
+            </div>
           </Modal.Body>
         </Modal>
       </div>

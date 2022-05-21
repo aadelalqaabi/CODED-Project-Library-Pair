@@ -15,17 +15,15 @@ function MemberList() {
   return (
     <div className="searchaddmember">
       <div class="input-group rounded">
-        <div>
-          <input
-            type="search"
-            class="form-control rounded"
-            id="searchinputmember"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="search-addon"
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </div>
+        <input
+          type="search"
+          class="form-control rounded"
+          id="searchinputmember"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          onChange={(e) => setQuery(e.target.value)}
+        />
       </div>
       <MemberAdd />
       <div className="memberList">{memberList}</div>

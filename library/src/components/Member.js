@@ -26,7 +26,7 @@ function Member({ member }) {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>
+          <Modal.Title className="titlefont">
             {member.firstName} {member.lastName}
           </Modal.Title>
         </Modal.Header>

@@ -6,7 +6,7 @@ class MemberStore {
       firstName: "Aziz",
       lastName: "AlSaffar",
       membership: "gold",
-      currentlyBorrowedBooks: "62853a01d8ec5d3d4a29fa5b",
+      currentlyBorrowedBooks: ["62853a01d8ec5d3d4a29fa5b"],
     },
   ];
   constructor() {
