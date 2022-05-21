@@ -28,14 +28,19 @@ function BookAdd() {
     image: "",
     author: "",
     title: "",
-    genres: [],
+    genres: ["Fantasy"],
   });
 
   const handleChange = (event) => {
     setTheBook({ ...theBook, [event.target.name]: event.target.value });
   };
   const handleGenres = (current) => {
-    let newArray = current.map((genre) => genre.value);
+    let newArray = [];
+    if (current.length === 0) {
+      newArray = ["Fantasy"];
+    } else {
+      newArray = current.map((genre) => genre.value);
+    }
     setTheBook({ ...theBook, genres: newArray });
   };
   const handleSubmit = (event) => {

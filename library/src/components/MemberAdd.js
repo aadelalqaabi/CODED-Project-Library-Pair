@@ -7,7 +7,7 @@ function MemberAdd() {
   const [theMember, setTheMember] = useState({
     firstName: "",
     lastName: "",
-    membership: "",
+    membership: "silver",
   });
 
   const handleChange = (event) => {

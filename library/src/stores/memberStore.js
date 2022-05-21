@@ -6,6 +6,7 @@ class MemberStore {
       firstName: "Aziz",
       lastName: "AlSaffar",
       membership: "gold",
+      currentlyBorrowedBooks: "62853a01d8ec5d3d4a29fa5b",
     },
   ];
   constructor() {
@@ -14,6 +15,16 @@ class MemberStore {
       createMember: action,
     });
   }
+
+  findBorrowingMember = (bookId) => {
+    if (bookId === "x") {
+      return "";
+    }
+    const theMember = this.members.find(
+      (member) => bookId === member.currentlyBorrowedBooks
+    );
+    return `${theMember.firstName} ${theMember.lastName}`;
+  };
 
   createMember = async (member) => {
     try {
