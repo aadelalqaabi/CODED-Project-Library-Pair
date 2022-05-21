@@ -21,7 +21,7 @@ function Member({ member }) {
       </div>
       <div className="mx-2">
         <Button variant="light" onClick={handleShow}>
-          Show Details
+          Show Profile
         </Button>
       </div>
       <Modal show={show} onHide={handleClose}>
@@ -30,7 +30,10 @@ function Member({ member }) {
             {member.firstName} {member.lastName}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>{bookTitles}</Modal.Body>
+        <Modal.Body>
+          <div className="modalmembership">{member.membership}</div>
+          <div> {bookTitles} </div>
+        </Modal.Body>
       </Modal>
     </div>
   );

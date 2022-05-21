@@ -51,8 +51,8 @@ function BookAdd() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // let newArray = selected.map((genre) => genre.value);
-    //setTheBook({ ...theBook, genres: newArray });
+    let newArray = selected.map((genre) => genre.value);
+    setTheBook({ ...theBook, genres: newArray });
 
     console.log(theBook.genres);
     bookStore.createBook(theBook);

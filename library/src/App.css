@@ -159,11 +159,12 @@ margin: 3px;
   border-radius: 20px;
 
 }
-.book-container{
- 
-}
-.member-container{
-  
+.modalmembership{
+  display: inline-block;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: x-large;
 }
 .App {
   background-color: rgb(255, 255, 255);
