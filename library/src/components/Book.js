@@ -1,11 +1,21 @@
 import bookStore from "../stores/bookStore";
 function Book({ book }) {
+  <style>
+    @import
+    url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Playball&family=Press+Start+2P&family=Sanchez&display=swap');
+  </style>;
   return (
     <div className="onebook">
-      <img src={book.image} className="bookimage"></img>
-      <h2>{book.author}</h2>
-      <h2>{book.title}</h2>
-      <h2>{[...book.genres]}</h2>
+      <div className="bookimage">
+        <img src={book.image} className="bookimage"></img>
+      </div>
+      <div className="booknames">
+        <h1 className="booktitle">{book.title}</h1>
+
+        <h2 className="bookauthor">By {book.author}</h2>
+
+        <h3 className="bookgenres">{[...book.genres]}</h3>
+      </div>
     </div>
   );
 }

@@ -1,21 +1,81 @@
-.header{
-  font-size: 4rem;
-  background-color: red;
+.container-fluid{
+
 }
+
+nav{
+  font-size: 20px;
+  font-family:'Times New Roman', Times, serif;
+  border-radius: 10px;
+
+}
+
 .onemember{
   background-color: green;
   border: 2px solid red;
 }
+.bookimage{
+  display: inline-block;
+  vertical-align: top;
+  width: 46%;
+}
 .onebook{
   color: antiquewhite;
-  background-color: rgb(28, 0, 128);
-  border: 2px solid rgb(166, 255, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  width:20%;
+  padding: 10px;
+  margin: 10px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;}
+.booknames{
+  display: inline-block;
+  width: 46%;
+  color:#282c34;
+  display:initial;             
+  flex-direction: column;     
+  justify-content: center;    
+  align-items: center;  
+
+ 
 }
 .bookimage{
-  width: 50px;
+  width: 200px;
   height: auto;
+  padding-bottom: 10px;
 }
+.booktitle{
+  font-size: 30px;
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-align: center;
+}
+.bookauthor{
+  font-size: 20px;
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-align: center;
+}
+.bookgenres{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Goudy Bookletter 1911', serif;
 
+  display: inline-block;
+  background-color: #fffefe;
+  color: rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 30px;
+  padding:  8px;
+  margin-right: 5px;
+  margin-bottom:5px;
+  margin-top: 15px;
+  
+}
+.booklist{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  
+}
 .container{
   display:flex;
   justify-content: center;
@@ -24,12 +84,13 @@
 }
 
 .book-container{
-  width:60%;
+ 
 }
 .member-container{
-  width:40%;
+  
 }
 .App {
+  background-color: rgb(255, 255, 255);
   text-align: center;
 }
 

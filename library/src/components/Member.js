@@ -1,8 +1,9 @@
 import bookStore from "../stores/bookStore";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
+
 function Member({ member }) {
-  const bookTitles = member.currentlyBorrowedBooks.map((borrowedBook) => {
+  const bookTitles = member.currentlyBorrowedBooks?.map((borrowedBook) => {
     return bookStore.findBookTitle(borrowedBook.id);
   });
 
