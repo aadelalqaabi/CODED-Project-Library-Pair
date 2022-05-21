@@ -43,18 +43,12 @@ function BookAdd() {
   const handleChange = (event) => {
     setTheBook({ ...theBook, [event.target.name]: event.target.value });
   };
-  /* const handleGenres = (current) => {
-    let newArray = [];
-    newArray.push(current);
+  const handleGenres = (current) => {
+    let newArray = current.map((genre) => genre.value);
     setTheBook({ ...theBook, genres: newArray });
-  };*/
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    let newArray = selected.map((genre) => genre.value);
-    setTheBook({ ...theBook, genres: newArray });
-
-    console.log(theBook.genres);
     bookStore.createBook(theBook);
     setSelected([]);
     handleClose();
@@ -109,7 +103,10 @@ function BookAdd() {
             <MultiSelect
               options={options}
               value={selected}
-              onChange={setSelected}
+              onChange={(selected) => {
+                setSelected(selected);
+                handleGenres(selected);
+              }}
               name="genres"
               labelledBy="Select"
             />
