@@ -160,11 +160,21 @@ margin: 3px;
 
 }
 .modalmembership{
-  display: inline-block;
-  justify-content: center;
-  align-content: center;
+ 
+  text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  font-size: x-large;
+  font-size: xx-large;
+}
+.modalbrorrowed
+{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: xx-large;
+  padding-top: 20px;
+}
+.modalbooketitle{
+  
+  padding-top: 20px;
 }
 .App {
   background-color: rgb(255, 255, 255);

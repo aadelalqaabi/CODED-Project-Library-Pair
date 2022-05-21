@@ -56,7 +56,7 @@ function BookAdd() {
 
     console.log(theBook.genres);
     bookStore.createBook(theBook);
-    //setSelected([]);
+    setSelected([]);
     handleClose();
   };
   const handleClose = () => setShow(false);
@@ -105,6 +105,7 @@ function BookAdd() {
                 onChange={handleChange}
               />
             </Form.Group>
+
             <MultiSelect
               options={options}
               value={selected}
@@ -112,6 +113,7 @@ function BookAdd() {
               name="genres"
               labelledBy="Select"
             />
+
             <br />
             <Button variant="primary mx-2" type="submit">
               Submit

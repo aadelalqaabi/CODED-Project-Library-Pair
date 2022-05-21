@@ -31,8 +31,15 @@ function Member({ member }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="modalmembership">{member.membership}</div>
-          <div> {bookTitles} </div>
+          <div className="modalmembership">Membership: {member.membership}</div>
+          <div className="modalbrorrowed"> Currently Borrowed Books </div>
+          <div className="modalbooketitle">
+            <ul>
+              {bookTitles.map((element) => (
+                <li>{element}</li>
+              ))}
+            </ul>
+          </div>
         </Modal.Body>
       </Modal>
     </div>

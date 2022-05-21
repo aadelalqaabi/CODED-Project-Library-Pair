@@ -15,7 +15,7 @@ function Book({ book }) {
 
         <h2 className="bookauthor">By {book.author}</h2>
 
-        <h3 className="bookgenres">{book.genres}</h3>
+        <h3 className="bookgenres">{[...book.genres]}</h3>
       </div>
     </div>
   );
