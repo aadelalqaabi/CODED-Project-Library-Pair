@@ -13,23 +13,14 @@ function BookAdd() {
     { label: "Fantasy", value: "Fantasy" },
     { label: "Sci-Fi", value: "Sci-Fi" },
     { label: "Romance", value: "Romance" },
-
     { label: "Fiction", value: "Fiction" },
-
     { label: "Self-Help", value: "Self-Help" },
-
     { label: "Thriller", value: "Thriller" },
-
     { label: "Suspense", value: "Suspense" },
-
     { label: "Biography", value: "Biography" },
-
     { label: "Business", value: "Business" },
-
     { label: "Entrepreneurship", value: "Entrepreneurship" },
-
     { label: "Crime", value: "Crime" },
-
     { label: "Mystery", value: "Mystery" },
   ];
 
