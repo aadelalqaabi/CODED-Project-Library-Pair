@@ -4,6 +4,7 @@ function Book({ book }) {
     @import
     url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Playball&family=Press+Start+2P&family=Sanchez&display=swap');
   </style>;
+  let genres = book.genres.map((genre) => genre);
   return (
     <div className="onebook">
       <div className="bookimage">
@@ -14,7 +15,7 @@ function Book({ book }) {
 
         <h2 className="bookauthor">By {book.author}</h2>
 
-        <h3 className="bookgenres">{[...book.genres]}</h3>
+        <h3 className="bookgenres">{book.genres}</h3>
       </div>
     </div>
   );

@@ -13,17 +13,19 @@ function MemberList() {
     )
     .map((member) => <Member member={member} key={member.id} />);
   return (
-    <div>
+    <div className="searchaddmember">
       <div class="input-group rounded">
-        <input
-          type="search"
-          class="form-control rounded"
-          id="searchmember"
-          placeholder="Search"
-          aria-label="Search"
-          aria-describedby="search-addon"
-          onChange={(e) => setQuery(e.target.value)}
-        />
+        <div>
+          <input
+            type="search"
+            class="form-control rounded"
+            id="searchinputmember"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
       </div>
       <MemberAdd />
       <div className="memberList">{memberList}</div>
