@@ -12,10 +12,13 @@ function Member({ member }) {
   const handleShow = () => setShow(true);
   return (
     <div className="onemember">
-      <h2>
-        {member.firstName} {member.lastName}
-      </h2>
-      <h2>{member.membership}</h2>
+      <div className="membernames">
+        <h1 className="membername">
+          {member.firstName} {member.lastName}
+        </h1>
+
+        <h2 className="membermembership">{member.membership}</h2>
+      </div>
       <div className="mx-2">
         <Button variant="light" onClick={handleShow}>
           Show Details

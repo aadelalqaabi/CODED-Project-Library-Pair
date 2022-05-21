@@ -5,7 +5,7 @@ function Nav() {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/BookList">
+        <a class="navbar-brand" href="/Home">
           Library
         </a>
         <button

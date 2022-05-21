@@ -10,8 +10,14 @@ nav{
 }
 
 .onemember{
-  background-color: green;
-  border: 2px solid red;
+  color: antiquewhite;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  width:20%;
+  padding: 10px;
+  margin: 10px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .bookimage{
   display: inline-block;
@@ -35,8 +41,19 @@ nav{
   flex-direction: column;     
   justify-content: center;    
   align-items: center;  
-
- 
+}
+.membernames{ display: inline-block;
+  width: 46%;
+  color:#282c34;
+  display:initial;             
+  flex-direction: column;     
+  justify-content: center;    
+  align-items: center;  
+}
+.membermembership{
+  font-size: 20px;
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-align: center;
 }
 .bookimage{
   width: 200px;
@@ -44,6 +61,11 @@ nav{
   padding-bottom: 10px;
 }
 .booktitle{
+  font-size: 30px;
+  font-family: 'Goudy Bookletter 1911', serif;
+  text-align: center;
+}
+.membername{ 
   font-size: 30px;
   font-family: 'Goudy Bookletter 1911', serif;
   text-align: center;
@@ -76,13 +98,45 @@ nav{
   justify-content: center;
   
 }
+.memberList{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
 .container{
   display:flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 10px;
 }
+.searchadd{
+  margin: 10px;
+ padding: 10px;
+ 
+}
+#addbook{
+display: flex;
+justify-content: right;
+padding-top: 20px;
 
+}
+#searchmember{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+#searchinput{
+
+  margin: 8px;
+
+}
+#selectinput{
+  margin: 8px;
+  border-radius: 20px;
+
+}
 .book-container{
  
 }
