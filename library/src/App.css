@@ -168,6 +168,10 @@ margin: 3px;
   margin: 8px;
 
 }
+.mx-22{
+  margin-top: 15px;
+  color: #61fb9e;
+}
 
 #searchinputmember{
   display:flex;

@@ -36,7 +36,12 @@ function Member({ member }) {
           <div className="modalbooketitle">
             <ul>
               {bookTitles.map((element) => (
-                <li>{element}</li>
+                <li>
+                  {element}{" "}
+                  <Button variant="danger" onClick={handleShow}>
+                    Return
+                  </Button>
+                </li>
               ))}
             </ul>
           </div>

@@ -1,6 +1,7 @@
 import memberStore from "../stores/memberStore";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
+import BookBorrow from "./BookBorrow";
 function Book({ book }) {
   <style>
     @import
@@ -29,6 +30,7 @@ function Book({ book }) {
             <Button variant="light" onClick={handleShow}>
               Show Details
             </Button>
+            <BookBorrow book={book} />
           </div>
         </div>
         <Modal show={show} onHide={handleClose}>
