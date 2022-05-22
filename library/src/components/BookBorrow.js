@@ -1,5 +1,6 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
+import { observer } from "mobx-react";
 import memberStore from "../stores/memberStore";
 import bookStore from "../stores/bookStore";
 
@@ -21,6 +22,13 @@ function BookBorrow({ book }) {
     setOption(event.target.value);
   };
 
+  const returnThisBook = () => {
+    const memberOption = memberStore.findMemberObj(
+      book.borrowedBy[book.borrowedBy?.length - 1]
+    );
+    bookStore.returnBook(book, memberOption);
+  };
+
   return (
     <div>
       <div className="mx-22">
@@ -32,7 +40,9 @@ function BookBorrow({ book }) {
             Borrow
           </Button>
         ) : (
-          <Button variant="danger">Return</Button>
+          <Button variant="danger" onClick={() => returnThisBook(book)}>
+            Return
+          </Button>
         )}
       </div>
 
@@ -69,4 +79,4 @@ function BookBorrow({ book }) {
     </div>
   );
 }
-export default BookBorrow;
+export default observer(BookBorrow);

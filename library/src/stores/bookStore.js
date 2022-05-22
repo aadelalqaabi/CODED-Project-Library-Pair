@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
+import memberStore from "./memberStore";
 class BookStore {
   books = [];
   constructor() {
@@ -7,7 +8,6 @@ class BookStore {
   }
 
   findBookTitle = (bookId) => {
-    console.log(bookId);
     const theBook = this.books?.find((book) => bookId === book?._id);
     return theBook?.title;
   };
@@ -64,9 +64,27 @@ class BookStore {
     }
   };
 
+  returnBook = async (book, member) => {
+    try {
+      book["available"] = true;
+      console.log(member.firstName);
+      member.currentlyBorrowedBooks?.splice(
+        member.currentlyBorrowedBooks?.indexOf(book._id),
+        1
+      );
+
+      await axios.put(
+        `https://library-borrow-system.herokuapp.com/api/books/${book._id}/return/${member._id}`,
+        book,
+        member
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   fetchBooks = async () => {
     try {
-      console.log("I am here");
       const response = await axios.get(
         "https://library-borrow-system.herokuapp.com/api/books"
       );
