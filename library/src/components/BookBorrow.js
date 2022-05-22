@@ -24,9 +24,16 @@ function BookBorrow({ book }) {
   return (
     <div>
       <div className="mx-22">
-        <Button variant="success" onClick={(event) => handleShow(event, book)}>
-          Borrow
-        </Button>
+        {book.available === true ? (
+          <Button
+            variant="success"
+            onClick={(event) => handleShow(event, book)}
+          >
+            Borrow
+          </Button>
+        ) : (
+          <Button variant="danger">Return</Button>
+        )}
       </div>
 
       <Modal show={show} onHide={handleClose}>

@@ -25,23 +25,27 @@ class BookStore {
   };
 
   borrowBook = async (book, member) => {
-    console.log(member._id, "----", book?.title);
+    console.log(
+      member.membership +
+        " yuyfjyfjyf   " +
+        member.currentlyBorrowedBooks.length
+    );
     try {
       switch (member.membership) {
         case "silver":
-          if (member.currentlyBorrowedBooks.length > 2) {
+          if (member.currentlyBorrowedBooks.length > 1) {
             alert("Cannot borrow");
             return;
           }
           break;
         case "gold":
-          if (member.currentlyBorrowedBooks.length > 3) {
+          if (member.currentlyBorrowedBooks.length > 2) {
             alert("Cannot borrow");
             return;
           }
           break;
         case "platinum":
-          if (member.currentlyBorrowedBooks.length > 5) {
+          if (member.currentlyBorrowedBooks.length > 4) {
             alert("Cannot borrow");
             return;
           }
@@ -49,7 +53,7 @@ class BookStore {
       }
       member.currentlyBorrowedBooks.push(book._id);
       book.borrowedBy.push(member._id);
-
+      book["available"] = false;
       await axios.put(
         `https://library-borrow-system.herokuapp.com/api/books/${book?._id}/borrow/${member?._id}`,
         book,
