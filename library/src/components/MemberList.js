@@ -11,7 +11,7 @@ function MemberList() {
         member.firstName.toLowerCase().includes(query.toLowerCase()) ||
         member.lastName.toLowerCase().includes(query.toLowerCase())
     )
-    .map((member) => <Member member={member} key={member.id} />);
+    .map((member) => <Member member={member} key={member._id} />);
   return (
     <div className="searchaddmember">
       <div class="input-group rounded">

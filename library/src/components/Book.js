@@ -13,9 +13,9 @@ function Book({ book }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const membersWhoBorrowed = book.borrowedBy?.map((memberID) => {
-    return memberStore.findMemberName(memberID);
-  });
+  const membersWhoBorrowed = book.borrowedBy?.map((memberID) =>
+    memberStore.findMemberName(memberID)
+  );
 
   return (
     <div className="onebook">

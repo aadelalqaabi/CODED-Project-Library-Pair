@@ -1,22 +1,15 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 class BookStore {
-  books = [
-    {
-      image:
-        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491842507l/34076952.jpg",
-      author: "Jordoan Peterson",
-      title: "12 Rules",
-      genres: ["self-Help"],
-    },
-  ];
+  books = [];
   constructor() {
     makeAutoObservable(this);
   }
 
   findBookTitle = (bookId) => {
-    const theBook = this.books.find((book) => bookId === book.id);
-    return theBook.title;
+    console.log(bookId);
+    const theBook = this.books?.find((book) => bookId === book?._id);
+    return theBook?.title;
   };
 
   createBook = async (book) => {
@@ -32,6 +25,7 @@ class BookStore {
   };
 
   borrowBook = async (book, member) => {
+    console.log(member._id, "----", book?.title);
     try {
       switch (member.membership) {
         case "silver":
@@ -57,7 +51,7 @@ class BookStore {
       book.borrowedBy.push(member._id);
 
       await axios.put(
-        `https://library-borrow-system.herokuapp.com/api/books/${book._id}/borrow/${member._id}`,
+        `https://library-borrow-system.herokuapp.com/api/books/${book?._id}/borrow/${member?._id}`,
         book,
         member
       );

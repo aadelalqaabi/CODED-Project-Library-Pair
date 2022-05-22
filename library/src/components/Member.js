@@ -4,9 +4,9 @@ import { useState } from "react";
 
 function Member({ member }) {
   const bookTitles = member.currentlyBorrowedBooks?.map((borrowedBook) => {
-    return bookStore.findBookTitle(borrowedBook.id);
+    return bookStore.findBookTitle(borrowedBook);
   });
-
+  console.log(bookTitles);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -37,7 +37,7 @@ function Member({ member }) {
             <ul>
               {bookTitles.map((element) => (
                 <li>
-                  {element}{" "}
+                  {element}
                   <Button variant="danger" onClick={handleShow}>
                     Return
                   </Button>

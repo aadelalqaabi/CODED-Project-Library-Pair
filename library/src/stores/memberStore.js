@@ -1,28 +1,18 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeAutoObservable } from "mobx";
 import axios from "axios";
 class MemberStore {
-  members = [
-    {
-      firstName: "Aziz",
-      lastName: "AlSaffar",
-      membership: "gold",
-      currentlyBorrowedBooks: ["62853a01d8ec5d3d4a29fa5b"],
-    },
-  ];
+  members = [];
   constructor() {
-    makeObservable(this, {
-      members: observable,
-      createMember: action,
-    });
+    makeAutoObservable(this);
   }
 
   findMemberName = (memberID) => {
-    const theMember = this.members.find((member) => memberID === member._id);
-    return `${theMember.firstName} ${theMember.lastName}`;
+    const theMember = this.members?.find((member) => memberID === member?._id);
+    return `${theMember?.firstName} ${theMember?.lastName}`;
   };
 
   findMemberObj = (memberID) => {
-    const theMember = this.members.find((member) => memberID === member._id);
+    const theMember = this.members?.find((member) => memberID === member?._id);
     return theMember;
   };
 
@@ -45,7 +35,6 @@ class MemberStore {
         "https://library-borrow-system.herokuapp.com/api/members"
       );
       this.members = response.data;
-      console.log(this.members);
     } catch (error) {
       console.error(error);
     }

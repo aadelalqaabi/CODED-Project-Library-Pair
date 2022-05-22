@@ -15,7 +15,7 @@ function BookList() {
           ? !book.genres.includes(genre)
           : book.genres.includes(genre))
     )
-    .map((book) => <Book key={book.id} book={book} />);
+    .map((book) => <Book key={book._id} book={book} />);
   return (
     <div className="searchadd">
       <div>

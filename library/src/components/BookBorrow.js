@@ -2,21 +2,29 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import memberStore from "../stores/memberStore";
 import bookStore from "../stores/bookStore";
+
 function BookBorrow({ book }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [option, setOption] = useState("hi");
 
-  const handleSubmit = (event, book) => {
+  const handleSubmit = (event) => {
+    console.log(option, "----", book?.title);
     event.preventDefault();
-    bookStore.borrowBook(book, memberStore.findMemberObj(event.target.name));
+    const memberOption = memberStore.findMemberObj(option);
+    bookStore.borrowBook(book, memberOption);
     handleClose();
+  };
+
+  const handleChange = (event) => {
+    setOption(event.target.value);
   };
 
   return (
     <div>
       <div className="mx-22">
-        <Button variant="success" onClick={handleShow}>
+        <Button variant="success" onClick={(event) => handleShow(event, book)}>
           Borrow
         </Button>
       </div>
@@ -27,25 +35,21 @@ function BookBorrow({ book }) {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            {memberStore.members.map((member) => (
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name={member.id}
-                  id="flexRadioDefault1"
-                ></input>
-                <label class="form-check-label" for="flexRadioDefault1">
-                  {member.firstName} {member.lastName}
-                </label>
-              </div>
-            ))}
+            <Form.Select
+              aria-label="Default select example"
+              onChange={handleChange}
+            >
+              <option>Select member</option>
+
+              {memberStore.members?.map((member) => (
+                <option value={member._id}>
+                  {member?.firstName} {member?.lastName}
+                </option>
+              ))}
+            </Form.Select>
+
             <div className="borrow-button">
-              <Button
-                variant="primary mx-2"
-                type="submit"
-                onClick={(event, book) => handleSubmit(event, book)}
-              >
+              <Button variant="primary mx-2" type="submit">
                 Submit
               </Button>
               <Button variant="secondary" onClick={handleClose}>
