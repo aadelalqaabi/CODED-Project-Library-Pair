@@ -28,6 +28,15 @@ nav{
   width: 46%;
 
 }
+
+.borrow-button{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .onebook{
   color: antiquewhite;
   background-color: rgb(255, 255, 255);

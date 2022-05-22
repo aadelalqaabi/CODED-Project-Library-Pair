@@ -8,7 +8,6 @@ class BookStore {
       author: "Jordoan Peterson",
       title: "12 Rules",
       genres: ["self-Help"],
-      //borrowedBy: ["6285150fb8273a86534c95bb"],
     },
   ];
   constructor() {
@@ -27,6 +26,41 @@ class BookStore {
         book
       );
       this.books.push(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  borrowBook = async (book, member) => {
+    try {
+      switch (member.membership) {
+        case "silver":
+          if (member.currentlyBorrowedBooks.length > 2) {
+            alert("Cannot borrow");
+            return;
+          }
+          break;
+        case "gold":
+          if (member.currentlyBorrowedBooks.length > 3) {
+            alert("Cannot borrow");
+            return;
+          }
+          break;
+        case "platinum":
+          if (member.currentlyBorrowedBooks.length > 5) {
+            alert("Cannot borrow");
+            return;
+          }
+          break;
+      }
+      member.currentlyBorrowedBooks.push(book._id);
+      book.borrowedBy.push(member._id);
+
+      await axios.put(
+        `https://library-borrow-system.herokuapp.com/api/books/${book._id}/borrow/${member._id}`,
+        book,
+        member
+      );
     } catch (error) {
       console.error(error);
     }

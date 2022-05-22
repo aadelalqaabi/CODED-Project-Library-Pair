@@ -2,6 +2,7 @@ import memberStore from "../stores/memberStore";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import BookBorrow from "./BookBorrow";
+import bookStore from "../stores/bookStore";
 function Book({ book }) {
   <style>
     @import
@@ -12,11 +13,9 @@ function Book({ book }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  /*const currentlyBorrowingMember = memberStore.findBorrowingMember(
-    book.borrowedBy.length === 0
-      ? "x"
-      : book.borrowedBy[book.borrowedBy.length - 1]
-  );*/
+  const membersWhoBorrowed = book.borrowedBy?.map((memberID) => {
+    return memberStore.findMemberName(memberID);
+  });
 
   return (
     <div className="onebook">
@@ -39,9 +38,9 @@ function Book({ book }) {
           </Modal.Header>
           <Modal.Body>
             <div className="modalbrorrowed">Written By {book.author}</div>
-            <div className="modalbrorrowed"> Currently Borrowed by </div>
+            <div className="modalbrorrowed"> Borrowed by </div>
             <div className="bookborrowedbydiv">
-              <div className="bookborrowedby"> {book.borrowedBy} </div>
+              <div className="bookborrowedby"> {membersWhoBorrowed} </div>
             </div>
             <div className="modalbookgenres">
               <div className="bookgenres"> {[...book.genres]} </div>

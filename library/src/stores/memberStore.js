@@ -16,14 +16,14 @@ class MemberStore {
     });
   }
 
-  findBorrowingMember = (bookId) => {
-    if (bookId === "x") {
-      return "";
-    }
-    const theMember = this.members.find(
-      (member) => bookId === member.currentlyBorrowedBooks
-    );
+  findMemberName = (memberID) => {
+    const theMember = this.members.find((member) => memberID === member._id);
     return `${theMember.firstName} ${theMember.lastName}`;
+  };
+
+  findMemberObj = (memberID) => {
+    const theMember = this.members.find((member) => memberID === member._id);
+    return theMember;
   };
 
   createMember = async (member) => {
