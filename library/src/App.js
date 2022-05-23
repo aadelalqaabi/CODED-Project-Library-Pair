@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <Nav />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/BookList" element={<BookList className="book-list" />} />
         <Route
