@@ -3,6 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import BookBorrow from "./BookBorrow";
 import bookStore from "../stores/bookStore";
+import MemberModal from "./MemberModal";
 function Book({ book }) {
   <style>
     @import
@@ -15,6 +16,10 @@ function Book({ book }) {
 
   const membersWhoBorrowed = book.borrowedBy?.map((memberID) =>
     memberStore.findMemberName(memberID)
+  );
+
+  const membersWhoBorrowedObj = book.borrowedBy?.map((memberID) =>
+    memberStore.findMemberObj(memberID)
   );
 
   const currentlyBorrowingShow = () => {
@@ -60,8 +65,15 @@ function Book({ book }) {
             {currentlyBorrowingShow()}
             <div className="modalbrorrowed"> ~ Borrowed History ~ </div>
             <div className="bookborrowedbydiv">
-              {membersWhoBorrowed.map((element) => (
-                <div className="bookborrowedby">{element} </div>
+              {membersWhoBorrowedObj.map((member) => (
+                <div className="bookborrowedby">
+                  <div className="specialmembermodal">
+                    <div className="memberborrowedname">
+                      {member?.firstName} {member?.lastName}
+                    </div>
+                    <MemberModal member={member} />
+                  </div>
+                </div>
               ))}
             </div>
           </Modal.Body>

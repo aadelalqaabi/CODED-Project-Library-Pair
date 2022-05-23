@@ -83,7 +83,7 @@ nav{
   color: #757378;
 
 }
-  .membergold{
+.membergold{
   font-size: 30px;
   font-family: 'Goudy Bookletter 1911', serif;
   text-align: center;
@@ -124,6 +124,15 @@ padding-top: 40px;
 .bookauthor{
   font-size: 20px;
   font-family: 'Goudy Bookletter 1911', serif;
+  
+}
+.memberborrowedname{
+  margin: 0 0 0 20px
+}
+.specialmembermodal{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   
 }
 .bookborrowedbydiv{

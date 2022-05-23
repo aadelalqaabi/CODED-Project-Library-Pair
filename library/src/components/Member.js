@@ -1,16 +1,9 @@
 import bookStore from "../stores/bookStore";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
+import MemberModal from "./MemberModal";
 
 function Member({ member }) {
-  const bookTitles = member.currentlyBorrowedBooks?.map((borrowedBook) => {
-    return bookStore.findBookTitle(borrowedBook);
-  });
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const capitalMembership = (ourString) => {
     return ourString.charAt(0).toUpperCase() + ourString.slice(1);
   };
@@ -34,32 +27,7 @@ function Member({ member }) {
           </h2>
         ) : null}
       </div>
-      <div className="mx-2">
-        <Button variant="light" onClick={handleShow}>
-          Show Profile
-        </Button>
-      </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className="titlefont">
-            {member.firstName} {member.lastName}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="modalmembership">Membership: {member.membership}</div>
-          <div className="modalbrorrowed">~ Currently Borrowed Books ~</div>
-          <div className="modalbooketitle">
-            {bookTitles.map((element) => (
-              <div
-                className="currentlyborrowed"
-                key={bookTitles.indexOf(element)}
-              >
-                {element}
-              </div>
-            ))}
-          </div>
-        </Modal.Body>
-      </Modal>
+      <MemberModal key={member._id} member={member} />
     </div>
   );
 }
