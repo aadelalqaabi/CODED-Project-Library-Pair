@@ -25,10 +25,26 @@ function MemberModal({ member }) {
         <Modal.Body>
           <div className="modalmembership">Membership: {member.membership}</div>
           <div className="modalbrorrowed">~ Currently Borrowed Books ~</div>
-          <div className="currentlyborrowed">
-            {bookTitles.map((element) => (
-              <div key={bookTitles.indexOf(element)}>{element}</div>
-            ))}
+
+          <div className="bookborrowedbydivmodal">
+            {bookTitles.map((element) => {
+              if (bookTitles?.indexOf(element) === bookTitles?.length - 1) {
+                return (
+                  <div className="" key={bookTitles.indexOf(element)}>
+                    {element}
+                  </div>
+                );
+              } else {
+                return (
+                  <div
+                    className="singlebookmodal"
+                    key={bookTitles.indexOf(element)}
+                  >
+                    {element}
+                  </div>
+                );
+              }
+            })}
           </div>
         </Modal.Body>
       </Modal>
