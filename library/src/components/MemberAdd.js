@@ -24,7 +24,7 @@ function MemberAdd() {
   return (
     <>
       <div className="mx-2" id="addmember">
-        <Button variant="dark" onClick={handleShow}>
+        <Button variant="dark" onClick={handleShow} id="addmemberbutton">
           Add Member
         </Button>
       </div>

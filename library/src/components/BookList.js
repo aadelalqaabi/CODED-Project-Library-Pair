@@ -19,25 +19,24 @@ function BookList() {
   return (
     <div className="searchadd">
       <div>
-        <div class="input-group rounded">
+        <div className="input-group rounded">
           <input
             type="search"
-            class="form-control rounded"
+            className="form-control rounded"
             id="searchinput"
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
             onChange={(e) => setQuery(e.target.value)}
           />
-
           <select
             onChange={(e) => setGenre(e.target.value)}
             aria-label="Default select example"
-            class="form-select"
+            className="form-select"
             data-mdb-filter="true"
             id="selectinput"
           >
-            <option value="" selected>
+            <option value="" defaultValue={"selected"}>
               All
             </option>
             <option value="Action">Action</option>
@@ -54,8 +53,8 @@ function BookList() {
             <option value="Crime">Crime</option>
             <option value="Mystery">Mystery</option>
           </select>
+          <BookAdd />
         </div>
-        <BookAdd />
       </div>
       <div className="booklist">{bookList}</div>
     </div>

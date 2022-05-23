@@ -105,6 +105,7 @@ function BookAdd() {
               }}
               name="genres"
               labelledBy="Select"
+              className="genresmenu"
             />
 
             <br />

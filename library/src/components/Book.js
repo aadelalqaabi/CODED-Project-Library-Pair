@@ -20,7 +20,7 @@ function Book({ book }) {
   return (
     <div className="onebook">
       <div className="bookcontainer">
-        <div>
+        <div className="imagecontainer">
           <img src={book.image} className="bookimage"></img>
         </div>
         <div className="booknames">
@@ -37,13 +37,17 @@ function Book({ book }) {
             <Modal.Title className="titlefont">{book.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="modalbrorrowed">Written By {book.author}</div>
-            <div className="modalbrorrowed"> Borrowed by </div>
-            <div className="bookborrowedbydiv">
-              <div className="bookborrowedby"> {membersWhoBorrowed} </div>
-            </div>
             <div className="modalbookgenres">
-              <div className="bookgenres"> {[...book.genres]} </div>
+              {book.genres.map((element) => (
+                <div className="bookgenres">{element} </div>
+              ))}
+            </div>
+            <div className="modalbrorrowed">Written By {book.author}</div>
+            <div className="modalbrorrowed"> ~ Borrowed History ~ </div>
+            <div className="bookborrowedbydiv">
+              {membersWhoBorrowed.map((element) => (
+                <div className="bookborrowedby">{element} </div>
+              ))}
             </div>
           </Modal.Body>
         </Modal>

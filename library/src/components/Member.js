@@ -6,7 +6,7 @@ function Member({ member }) {
   const bookTitles = member.currentlyBorrowedBooks?.map((borrowedBook) => {
     return bookStore.findBookTitle(borrowedBook);
   });
-  console.log(bookTitles);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -17,7 +17,15 @@ function Member({ member }) {
           {member.firstName} {member.lastName}
         </h1>
 
-        <h2 className="membermembership">{member.membership}</h2>
+        {member.membership === "silver" ? (
+          <h2 className="membersilver">{member.membership}</h2>
+        ) : null}
+        {member.membership === "gold" ? (
+          <h2 className="membergold">{member.membership}</h2>
+        ) : null}
+        {member.membership === "platinum" ? (
+          <h2 className="memberplatinum">{member.membership}</h2>
+        ) : null}
       </div>
       <div className="mx-2">
         <Button variant="light" onClick={handleShow}>
@@ -32,13 +40,16 @@ function Member({ member }) {
         </Modal.Header>
         <Modal.Body>
           <div className="modalmembership">Membership: {member.membership}</div>
-          <div className="modalbrorrowed"> Currently Borrowed Books </div>
+          <div className="modalbrorrowed">~ Currently Borrowed Books ~</div>
           <div className="modalbooketitle">
-            <ul>
-              {bookTitles.map((element) => (
-                <li>{element}</li>
-              ))}
-            </ul>
+            {bookTitles.map((element) => (
+              <div
+                className="currentlyborrowed"
+                key={bookTitles.indexOf(element)}
+              >
+                {element}
+              </div>
+            ))}
           </div>
         </Modal.Body>
       </Modal>

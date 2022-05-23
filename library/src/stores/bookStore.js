@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
-import memberStore from "./memberStore";
+
 class BookStore {
   books = [];
   constructor() {

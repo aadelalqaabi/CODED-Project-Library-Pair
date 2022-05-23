@@ -59,7 +59,7 @@ function BookBorrow({ book }) {
               <option>Select member</option>
 
               {memberStore.members?.map((member) => (
-                <option value={member._id}>
+                <option value={member._id} key={member._id}>
                   {member?.firstName} {member?.lastName}
                 </option>
               ))}

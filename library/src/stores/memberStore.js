@@ -30,7 +30,6 @@ class MemberStore {
 
   fetchMembers = async () => {
     try {
-      console.log("I am here");
       const response = await axios.get(
         "https://library-borrow-system.herokuapp.com/api/members"
       );
