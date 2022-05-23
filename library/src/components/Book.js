@@ -17,6 +17,19 @@ function Book({ book }) {
     memberStore.findMemberName(memberID)
   );
 
+  const currentlyBorrowingShow = () => {
+    if (book.available === true) {
+      return <></>;
+    } else {
+      return (
+        <div className="modalbrorrowed">
+          Currently Borrowed by:{" "}
+          {membersWhoBorrowed[membersWhoBorrowed.length - 1]}
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="onebook">
       <div className="bookcontainer">
@@ -42,7 +55,9 @@ function Book({ book }) {
                 <div className="bookgenres">{element} </div>
               ))}
             </div>
+
             <div className="modalbrorrowed">Written By {book.author}</div>
+            {currentlyBorrowingShow()}
             <div className="modalbrorrowed"> ~ Borrowed History ~ </div>
             <div className="bookborrowedbydiv">
               {membersWhoBorrowed.map((element) => (

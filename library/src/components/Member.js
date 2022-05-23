@@ -10,21 +10,28 @@ function Member({ member }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const capitalMembership = (ourString) => {
+    return ourString.charAt(0).toUpperCase() + ourString.slice(1);
+  };
   return (
     <div className="onemember">
       <div className="membernames">
         <h1 className="membername">
           {member.firstName} {member.lastName}
         </h1>
-
         {member.membership === "silver" ? (
-          <h2 className="membersilver">{member.membership}</h2>
+          <h2 className="membersilver">
+            {capitalMembership(member.membership)}
+          </h2>
         ) : null}
         {member.membership === "gold" ? (
-          <h2 className="membergold">{member.membership}</h2>
+          <h2 className="membergold">{capitalMembership(member.membership)}</h2>
         ) : null}
         {member.membership === "platinum" ? (
-          <h2 className="memberplatinum">{member.membership}</h2>
+          <h2 className="memberplatinum">
+            {capitalMembership(member.membership)}
+          </h2>
         ) : null}
       </div>
       <div className="mx-2">
