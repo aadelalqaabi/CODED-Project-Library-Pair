@@ -47,9 +47,11 @@ function Book({ book }) {
         <div className="booknames">
           <h1 className="booktitle">{book.title}</h1>
           <div className="mx-2">
-            <Button variant="light" onClick={handleShow}>
-              Show Details
-            </Button>
+            <Link to={`/BookList/${book._id}`}>
+              <Button variant="light" className="gotoprofile">
+                Details
+              </Button>
+            </Link>
             <BookBorrow key={book._id} book={book} />
           </div>
         </div>
@@ -76,7 +78,11 @@ function Book({ book }) {
                     <div className="memberborrowedname">
                       {member?.firstName} {member?.lastName}
                     </div>
-                    <MemberModal key={member?._id} member={member} />
+                    <div className="mx-2">
+                      <Link to={`/MemberList/${member?._id}`}>
+                        <Button variant="light">Go to profile</Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}

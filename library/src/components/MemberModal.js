@@ -14,7 +14,7 @@ function MemberModal({ member }) {
     <div>
       <div className="mx-2">
         <Link to={`/MemberList/${member._id}`}>
-          <Button variant="light">Details</Button>
+          <Button variant="light">Go to profile</Button>
         </Link>
       </div>
       <Modal show={show} onHide={handleClose}>
@@ -53,9 +53,3 @@ function MemberModal({ member }) {
   );
 }
 export default MemberModal;
-/*
-
-<Button variant="light" onClick={handleShow}>
-          Show Profile
-        </Button>
-        */

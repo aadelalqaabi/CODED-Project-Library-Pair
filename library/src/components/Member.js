@@ -28,7 +28,9 @@ function Member({ member }) {
         ) : null}
       </div>
       <Link to={`/MemberList/${member._id}`}>
-        <Button variant="light">Go to profile</Button>
+        <Button variant="light" className="gotoprofile">
+          Profile
+        </Button>
       </Link>
     </div>
   );

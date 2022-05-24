@@ -12,6 +12,11 @@ class BookStore {
     return theBook?.title;
   };
 
+  findBookObj = (bookID) => {
+    const theBook = this.books?.find((book) => bookID === book?._id);
+    return theBook;
+  };
+
   createBook = async (book) => {
     try {
       const response = await axios.post(

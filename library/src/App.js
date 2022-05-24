@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import MemberPage from "./components/MemberPage";
 import { Route, Routes } from "react-router-dom";
+import BookPage from "./components/BookPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           element={<MemberList className="member-list" />}
         />
         <Route path="MemberList/:memberId" element={<MemberPage />} />
+        <Route path="BookList/:bookId" element={<BookPage />} />
       </Routes>
     </div>
   );
