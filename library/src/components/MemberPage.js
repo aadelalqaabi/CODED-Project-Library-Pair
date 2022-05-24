@@ -14,7 +14,7 @@ function MemberPage() {
     return bookStore.findBookTitle(borrowedBook);
   });
   return (
-    <>
+    <div className="upcontainer">
       <div className="mpage-container">
         <div className="mpage-name">
           {memberStore.findMemberName(memberIdM)}
@@ -63,7 +63,7 @@ function MemberPage() {
           }
         })}
       </div>
-    </>
+    </div>
   );
 }
 export default MemberPage;
