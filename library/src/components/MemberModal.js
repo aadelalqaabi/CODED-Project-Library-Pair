@@ -1,5 +1,6 @@
 import bookStore from "../stores/bookStore";
 import { Button, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function MemberModal({ member }) {
@@ -12,9 +13,9 @@ function MemberModal({ member }) {
   return (
     <div>
       <div className="mx-2">
-        <Button variant="light" onClick={handleShow}>
-          Show Profile
-        </Button>
+        <Link to={`/MemberList/${member._id}`}>
+          <Button variant="light">Details</Button>
+        </Link>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -24,7 +25,7 @@ function MemberModal({ member }) {
         </Modal.Header>
         <Modal.Body>
           <div className="modalmembership">Membership: {member.membership}</div>
-          <div className="modalbrorrowed">~ Currently Borrowed Books ~</div>
+          <div className="modalbrorrowed">Currently Borrowed Books</div>
 
           <div className="bookborrowedbydivmodal">
             {bookTitles.map((element) => {
@@ -52,3 +53,9 @@ function MemberModal({ member }) {
   );
 }
 export default MemberModal;
+/*
+
+<Button variant="light" onClick={handleShow}>
+          Show Profile
+        </Button>
+        */

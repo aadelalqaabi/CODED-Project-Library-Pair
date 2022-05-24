@@ -4,12 +4,8 @@ import { useState } from "react";
 import BookBorrow from "./BookBorrow";
 import bookStore from "../stores/bookStore";
 import MemberModal from "./MemberModal";
+import { Link } from "react-router-dom";
 function Book({ book }) {
-  <style>
-    @import
-    url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Playball&family=Press+Start+2P&family=Sanchez&display=swap');
-  </style>;
-  let genres = book.genres.map((genre) => genre);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +25,14 @@ function Book({ book }) {
       return (
         <div className="modalbrorrowed">
           Currently Borrowed by:{" "}
-          {membersWhoBorrowed[membersWhoBorrowed.length - 1]}
+          <Link
+            to={`/MemberList/${
+              membersWhoBorrowedObj[membersWhoBorrowedObj.length - 1]?._id
+            }`}
+            class="currently-link"
+          >
+            {membersWhoBorrowed[membersWhoBorrowed.length - 1]}
+          </Link>
         </div>
       );
     }
@@ -47,7 +50,7 @@ function Book({ book }) {
             <Button variant="light" onClick={handleShow}>
               Show Details
             </Button>
-            <BookBorrow book={book} />
+            <BookBorrow key={book._id} book={book} />
           </div>
         </div>
         <Modal show={show} onHide={handleClose}>
@@ -57,13 +60,15 @@ function Book({ book }) {
           <Modal.Body>
             <div className="modalbookgenres">
               {book.genres.map((element) => (
-                <div className="bookgenres">{element} </div>
+                <div key={element} className="bookgenres">
+                  {element}{" "}
+                </div>
               ))}
             </div>
 
             <div className="modalbrorrowed">Written By {book.author}</div>
             {currentlyBorrowingShow()}
-            <div className="modalbrorrowed"> ~ Borrowed History ~ </div>
+            <div className="modalbrorrowed">Borrowed History</div>
             <div className="bookborrowedbydiv">
               {membersWhoBorrowedObj.map((member) => (
                 <div className="bookborrowedby">
@@ -71,7 +76,7 @@ function Book({ book }) {
                     <div className="memberborrowedname">
                       {member?.firstName} {member?.lastName}
                     </div>
-                    <MemberModal member={member} />
+                    <MemberModal key={member?._id} member={member} />
                   </div>
                 </div>
               ))}

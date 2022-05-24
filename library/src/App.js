@@ -3,7 +3,7 @@ import MemberList from "./components/MemberList";
 import BookList from "./components/BookList";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-
+import MemberPage from "./components/MemberPage";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
           path="/MemberList"
           element={<MemberList className="member-list" />}
         />
+        <Route path="MemberList/:memberId" element={<MemberPage />} />
       </Routes>
     </div>
   );

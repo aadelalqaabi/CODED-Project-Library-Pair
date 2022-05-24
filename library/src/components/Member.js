@@ -2,7 +2,7 @@ import bookStore from "../stores/bookStore";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import MemberModal from "./MemberModal";
-
+import { Link } from "react-router-dom";
 function Member({ member }) {
   const capitalMembership = (ourString) => {
     return ourString.charAt(0).toUpperCase() + ourString.slice(1);
@@ -27,8 +27,12 @@ function Member({ member }) {
           </h2>
         ) : null}
       </div>
-      <MemberModal key={member._id} member={member} />
+      <Link to={`/MemberList/${member._id}`}>
+        <Button variant="light">Page</Button>
+      </Link>
     </div>
   );
 }
 export default Member;
+
+//<MemberModal key={member._id} member={member} />
